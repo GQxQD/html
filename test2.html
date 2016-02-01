@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>当网页超过一屏时导航菜单始终置顶</title>
+		<meta charset="utf-8">
+		<script>
+			//初始化函数
+			function init(){
+				//获取顶部元素的DOM
+				var wrap = document.getElementById('wrap');
+				var scrollTop = 0;//初始化为顶部
+				//监听页面滚动事件
+				window.onscroll=function(){
+					//获取当前的滚动距离
+					scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+					//超过150像素的滚动，就把导航菜单DIV设置为固定
+					if(scrollTop>180){
+						wrap.className='the_top';//固定下来的样式
+						//var hd = document.getElementById('hd');
+						//hd.className='the_top.hd';
+						hd.style.display = 'none';
+						hd2.style.display = '';
+						//bd.style.width='100%';
+						wrap.style.filter='alpha(opacity=80)'; 
+						//wrap.style.-moz-opacity='0.5'; 
+						wrap.style.opacity='0.8';
+					}else{
+						wrap.className='wrap';//恢复原有样式
+						hd.style.display = '';
+						hd2.style.display = 'none';
+						//bd.style.width='1191px';
+						wrap.style.opacity='1';
+						wrap.style.filter='alpha(opacity=100)'; 
+					}
+				}
+			}
+		</script>
+		<style>
+			*{margin:0;padding:0;}
+			.wrap{width:100%;}
+			.hd{background:url("https://img.alicdn.com/tps/TB1G02ZJVXXXXcSXpXXXXXXXXXX-1190-90.jpg");width:100%;height:180px;margin:0 auto;background-color:red;}
+			.bd{width:100%;height:60px;margin:0 auto;background-color:#009933;
+			line-height:60px;color:white;
+			}
+			.the_top{position:fixed;width:100%;}
+			.the_top.bd{margin:0;width:100%;}
+			.the_top.hd{display:none;}
+		</style>
+	</head>
+	<body style="text-align:center" onload="init()">
+		<div id="hd" class="hd"></div>
+		<div id="wrap" class="wrap">
+			<div id="bd" class="bd">
+				首页 | 新闻 | 文章 | 留言 | 关于
+			</div>
+		</div>
+		<div id="hd2" style="display:none;" class="hd">111111111111111111111111</div>
+		<script>
+		for(var i=0;i < 100; i++){
+			document.write('<p>'+i+'<br>');
+			for(var j=0;j < 100; j++){
+				if(j%2==0)
+					document.write('1');
+				else
+					document.write('0');
+			}
+			document.write('</p>');
+		}
+		</script>
+		<img src="https://img.alicdn.com/tps/TB1G02ZJVXXXXcSXpXXXXXXXXXX-1190-90.jpg">
+	</body>
+</html>
