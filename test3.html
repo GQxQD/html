@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>无标题-1</title>
-<script>
-window.ontouchstart = function(e) { e.preventDefault(); };
-</script>
-<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
-<script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
-<script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
-<script src="无标题-1.js"></script>
+	<head>
+		<meta charset="UTF-8">
+		<title>无标题-1</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+		window.ontouchstart = function(e) { e.preventDefault(); };
+		</script>
+		<script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+		<script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+		<script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+		<script src="无标题-1.js"></script>
 
-<script>
-var canvas, stage, exportRoot;
+		<script>
+			var canvas, stage, exportRoot;
 
-function init() {
-	canvas = document.getElementById("canvas");
-	exportRoot = new lib.无标题1();
+			function init() {
+				canvas = document.getElementById("canvas");
+				exportRoot = new lib.无标题1();
 
-	stage = new createjs.Stage(canvas);
-	stage.addChild(exportRoot);
-	stage.update();
-	stage.enableMouseOver();
+				stage = new createjs.Stage(canvas);
+				stage.addChild(exportRoot);
+				stage.update();
+				stage.enableMouseOver();
 
-	createjs.Ticker.setFPS(lib.properties.fps);
-	createjs.Ticker.addEventListener("tick", stage);
-}
-</script>
-</head>
+				createjs.Ticker.setFPS(lib.properties.fps);
+				createjs.Ticker.addEventListener("tick", stage);
+			}
+		</script>
+	</head>
 
-<body onload="init();" style="background-color:#D4D4D4">
-	<canvas id="canvas" width="550" height="400" style="background-color:#FFFFFF"></canvas>
-</body>
+	<body onload="init();" style="background-color:#D4D4D4">
+		<canvas id="canvas" width="550" height="400" style="background-color:#FFFFFF"></canvas>
+	</body>
 </html>
