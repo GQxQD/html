@@ -1,4 +1,18 @@
-```js
-+ var a = 1;
-- var b = 2;
+```diff
+  const path = require('path');
++ const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+ module.exports = {
+   entry: {
+    bundle: './src/index.js'
+  },
+   output: {
+     path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js'
+-   }
++  },
++  plugins: [
++    new HtmlWebpackPlugin()
++  ]
+ };
 ```
